@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bank-Deposits")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0bb070ddfbc250e509d3f9fe9cfcf2f0dae1119")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5da5be996cc26b04238ef9c2007295d06d6ab749")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bank-Deposits")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bank-Deposits")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
