@@ -34,7 +34,7 @@ namespace Repository.Repositories.Implementation
 
         public async Task UpdateAsync(Currency currency)
         {
-            _db.Entry(currency).State = EntityState.Modified;
+            _db.Currencies.Update(currency);
             await Task.CompletedTask;
         }
 

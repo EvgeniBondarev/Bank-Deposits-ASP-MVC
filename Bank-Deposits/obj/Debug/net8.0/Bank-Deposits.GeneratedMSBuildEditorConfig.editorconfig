@@ -54,12 +54,124 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Bank-Deposits/Bank-Deposits/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[E:/Bank-Deposits/Bank-Deposits/Views/Currencies/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmVuY2llc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Bank-Deposits/Bank-Deposits/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[E:/Bank-Deposits/Bank-Deposits/Views/Currencies/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmVuY2llc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Currencies/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmVuY2llc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Currencies/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmVuY2llc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Currencies/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmVuY2llc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Depositors/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9yc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Depositors/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9yc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Depositors/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9yc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Depositors/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9yc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Depositors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdG9yc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Deposits/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Deposits/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Deposits/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Deposits/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Deposits/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwb3NpdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Employees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Employees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Employees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Employees/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/ExchangeRates/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhjaGFuZ2VSYXRlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/ExchangeRates/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhjaGFuZ2VSYXRlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/ExchangeRates/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhjaGFuZ2VSYXRlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/ExchangeRates/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhjaGFuZ2VSYXRlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/ExchangeRates/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhjaGFuZ2VSYXRlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Operations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Operations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Operations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Operations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Bank-Deposits/Bank-Deposits/Views/Operations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmF0aW9uc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Bank-Deposits/Bank-Deposits/Views/Shared/Error.cshtml]

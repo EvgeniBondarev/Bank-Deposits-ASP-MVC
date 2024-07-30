@@ -19,12 +19,12 @@ namespace Repository.Repositories.Implementation
 
         public async Task<IEnumerable<Operation>> GetAllAsync()
         {
-            return await _db.Operations.Include(o => o.Depositor).Include(o => o.Deposit).ToListAsync();
+            return await _db.Operations.Include(o => o.Depositor).Include(o => o.Deposit).Include(o => o.EmployeeOperations).ThenInclude(o => o.Employee).ToListAsync();
         }
 
         public async Task<Operation> GetAsync(int id)
         {
-            return await _db.Operations.Include(o => o.Depositor).Include(o => o.Deposit).FirstOrDefaultAsync(o => o.OperationId == id);
+            return await _db.Operations.Include(o => o.Depositor).Include(o => o.Deposit).Include(o => o.EmployeeOperations).ThenInclude(o => o.Employee).FirstOrDefaultAsync(o => o.OperationId == id);
         }
 
         public async Task CreateAsync(Operation operation)
@@ -34,7 +34,7 @@ namespace Repository.Repositories.Implementation
 
         public async Task UpdateAsync(Operation operation)
         {
-            _db.Entry(operation).State = EntityState.Modified;
+            _db.Operations.Update(operation);   
             await Task.CompletedTask;
         }
 

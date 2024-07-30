@@ -1,0 +1,101 @@
+﻿@using Bank_Deposits.ViewModels
+@using Domains.Models
+@model PageViewModel<Depositor>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.First().PassportDetails)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Items) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportDetails)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DepositorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DepositorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DepositorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+<div class="pagination-wrapper d-flex justify-content-center">
+    <div class="pagination-controls">
+        @if (Model.TotalPages > 15)
+        {
+            @if (Model.PageNumber <= 8)
+            {
+                @for (int i = 1; i <= 15; i++)
+                {
+                    <a asp-action="Index" asp-route-page="@(i)" class="btn btn-primary @(i == Model.PageNumber ? "active" : "")">@i</a>
+                }
+                <span>...</span>
+                <a asp-action="Index" asp-route-page="@Model.TotalPages" class="btn btn-primary">@(Model.TotalPages)</a>
+            }
+            else if (Model.PageNumber >= Model.TotalPages - 7)
+            {
+                <a asp-action="Index" asp-route-page="1" class="btn btn-primary">1</a>
+                <span>...</span>
+                @for (int i = Model.TotalPages - 14; i <= Model.TotalPages; i++)
+                {
+                    <a asp-action="Index" asp-route-page="@(i)" class="btn btn-primary @(i == Model.PageNumber ? "active" : "")">@i</a>
+                }
+            }
+            else
+            {
+                <a asp-action="Index" asp-route-page="1" class="btn btn-primary">1</a>
+                <span>...</span>
+                @for (int i = Model.PageNumber - 6; i <= Model.PageNumber + 8; i++)
+                {
+                    <a asp-action="Index" asp-route-page="@(i)" class="btn btn-primary @(i == Model.PageNumber ? "active" : "")">@i</a>
+                }
+                <span>...</span>
+                <a asp-action="Index" asp-route-page="@Model.TotalPages" class="btn btn-primary">@(Model.TotalPages)</a>
+            }
+        }
+        else
+        {
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <a asp-action="Index" asp-route-page="@(i)" class="btn btn-primary @(i == Model.PageNumber ? "active" : "")">@i</a>
+            }
+        }
+    </div>
+</div>

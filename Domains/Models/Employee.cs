@@ -23,6 +23,10 @@ namespace Domains.Models
         [Display(Name = "Должность сотрудника")]
         public string Position { get; set; }
 
+        [Display(Name = "Возраст")]
+        public int Age { get; set; }
+
+        [Display(Name = "Операции сотрудника")]
         public ICollection<EmployeeOperation> EmployeeOperations { get; set; }
     }
 }

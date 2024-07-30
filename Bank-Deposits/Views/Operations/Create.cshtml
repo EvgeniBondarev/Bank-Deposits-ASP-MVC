@@ -1,0 +1,70 @@
+﻿@using Domains.Models
+@model Operation
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Operation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DepositorId" class="control-label"></label>
+                <select asp-for="DepositorId" class="form-control" asp-items="ViewBag.DepositorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepositDate" class="control-label"></label>
+                <input asp-for="DepositDate" class="form-control" />
+                <span asp-validation-for="DepositDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReturnDate" class="control-label"></label>
+                <input asp-for="ReturnDate" class="form-control" />
+                <span asp-validation-for="ReturnDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepositId" class="control-label"></label>
+                <select asp-for="DepositId" class="form-control" asp-items="ViewBag.DepositId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepositAmount" class="control-label"></label>
+                <input asp-for="DepositAmount" class="form-control" />
+                <span asp-validation-for="DepositAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReturnAmount" class="control-label"></label>
+                <input asp-for="ReturnAmount" class="form-control" />
+                <span asp-validation-for="ReturnAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsReturned" /> @Html.DisplayNameFor(model => model.IsReturned)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedEmployeeIds" class="control-label"></label>
+                <select asp-for="SelectedEmployeeIds" class="form-control" asp-items="ViewBag.EmployeeIds" multiple="multiple"></select>
+                <span asp-validation-for="SelectedEmployeeIds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -45,6 +45,10 @@ namespace Domains.Models
         [Display(Name = "Отметка о возврате вклада")]
         public bool IsReturned { get; set; }
 
+        [Display(Name = "Какие сотрудники выполняли операции вкладчика")]
         public ICollection<EmployeeOperation> EmployeeOperations { get; set; }
+
+        [NotMapped]
+        public List<int> SelectedEmployeeIds { get; set; }
     }
 }

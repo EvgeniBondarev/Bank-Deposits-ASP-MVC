@@ -34,7 +34,7 @@ namespace Repository.Repositories.Implementation
 
         public async Task UpdateAsync(Deposit deposit)
         {
-            _db.Entry(deposit).State = EntityState.Modified;
+            _db.Deposits.Update(deposit);
             await Task.CompletedTask;
         }
 

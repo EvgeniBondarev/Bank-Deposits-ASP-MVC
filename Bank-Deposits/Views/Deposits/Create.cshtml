@@ -1,0 +1,69 @@
+﻿@model Domains.Models.Deposit
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Deposit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinimumTerm" class="control-label"></label>
+                <input asp-for="MinimumTerm" class="form-control" />
+                <span asp-validation-for="MinimumTerm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinimumAmount" class="control-label"></label>
+                <input asp-for="MinimumAmount" class="form-control" />
+                <span asp-validation-for="MinimumAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrencyId" class="control-label"></label>
+                <select asp-for="CurrencyId" class ="form-control" asp-items="ViewBag.CurrencyId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="InterestRate" class="control-label"></label>
+                <input asp-for="InterestRate" class="form-control" />
+                <span asp-validation-for="InterestRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalConditions" class="control-label"></label>
+                <input asp-for="AdditionalConditions" class="form-control" />
+                <span asp-validation-for="AdditionalConditions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script type="text/javascript">
+        // переопределение валидации на стороне клиента
+        $.validator.methods.range = function (value, element, param) {
+            var globalizedValue = value.replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+        }
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        }
+    </script>
+}
