@@ -19,12 +19,12 @@ namespace Repository.Repositories.Implementation
 
         public async Task<IEnumerable<Depositor>> GetAllAsync()
         {
-            return await _db.Depositors.Include(d => d.Operations).ThenInclude(o => o.Deposit).ToListAsync();
+            return await _db.Depositors.Include(d => d.Operations).ThenInclude(o => o.Deposit).Include(o => o.Operations).ToListAsync();
         }
 
         public async Task<Depositor> GetAsync(int id)
         {
-            return await _db.Depositors.Include(d => d.Operations).ThenInclude(o => o.Deposit).FirstOrDefaultAsync(d => d.DepositorId == id);
+            return await _db.Depositors.Include(d => d.Operations).ThenInclude(o => o.Deposit).Include(o => o.Operations).FirstOrDefaultAsync(d => d.DepositorId == id);
         }
 
         public async Task CreateAsync(Depositor depositor)

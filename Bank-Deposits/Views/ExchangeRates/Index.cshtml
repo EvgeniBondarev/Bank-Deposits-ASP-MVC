@@ -3,14 +3,14 @@
 @model PageViewModel<ExchangeRate>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Курсы валют";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Курсы валют</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Создать новый</a>
 </p>
 <table class="table">
     <thead>
@@ -28,24 +28,25 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Items) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Currency.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ExchangeRateId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ExchangeRateId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ExchangeRateId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Currency.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ExchangeRateId">Редактировать</a> <br />
+                    <a asp-action="Details" asp-route-id="@item.ExchangeRateId">Детали</a> <br />
+                    <a asp-action="Delete" asp-route-id="@item.ExchangeRateId">Удалить</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
@@ -91,3 +92,4 @@
             }
         }
     </div>
+</div>

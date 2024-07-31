@@ -2,13 +2,13 @@
 @model Operation
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Редактирование";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>Редактирование</h1>
 
-<h4>Operation</h4>
+<h4>Операция</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -16,54 +16,55 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="OperationId" />
             <div class="form-group">
-                <label asp-for="DepositorId" class="control-label"></label>
+                <label asp-for="DepositorId" class="control-label">Вкладчик:</label>
                 <select asp-for="DepositorId" class="form-control" asp-items="ViewBag.DepositorId"></select>
                 <span asp-validation-for="DepositorId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DepositDate" class="control-label"></label>
+                <label asp-for="DepositDate" class="control-label">Дата вклада:</label>
                 <input asp-for="DepositDate" class="form-control" />
                 <span asp-validation-for="DepositDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReturnDate" class="control-label"></label>
+                <label asp-for="ReturnDate" class="control-label">Дата возврата:</label>
                 <input asp-for="ReturnDate" class="form-control" />
                 <span asp-validation-for="ReturnDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DepositId" class="control-label"></label>
+                <label asp-for="DepositId" class="control-label">Вклад:</label>
                 <select asp-for="DepositId" class="form-control" asp-items="ViewBag.DepositId"></select>
                 <span asp-validation-for="DepositId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DepositAmount" class="control-label"></label>
+                <label asp-for="DepositAmount" class="control-label">Сумма вклада:</label>
                 <input asp-for="DepositAmount" class="form-control" />
                 <span asp-validation-for="DepositAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReturnAmount" class="control-label"></label>
+                <label asp-for="ReturnAmount" class="control-label">Сумма возврата:</label>
                 <input asp-for="ReturnAmount" class="form-control" />
                 <span asp-validation-for="ReturnAmount" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="IsReturned" /> @Html.DisplayNameFor(model => model.IsReturned)
+                    Вложение возвращено
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="SelectedEmployeeIds" class="control-label"></label>
+                <label asp-for="SelectedEmployeeIds" class="control-label">Сотрудники:</label>
                 <select asp-for="SelectedEmployeeIds" class="form-control" asp-items="ViewBag.EmployeeIds" multiple="multiple"></select>
                 <span asp-validation-for="SelectedEmployeeIds" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад к списку</a>
 </div>
 
 @section Scripts {

@@ -34,6 +34,7 @@ namespace Domains.Models
         [Display(Name = "Паспортные данные вкладчика")]
         public string PassportDetails { get; set; }
 
+        [Display(Name = "Операции вкладчика вкладчика")]
         public ICollection<Operation> Operations { get; set; }
     }
 }

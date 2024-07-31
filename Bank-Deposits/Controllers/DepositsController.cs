@@ -17,11 +17,31 @@ namespace Bank_Deposits.Controllers
         }
 
 
-        public async Task<IActionResult> Index(int page = 1)
+        public async Task<IActionResult> Index(int page = 1, int? currencyId = null, bool filterByMaxInterestRate = false)
         {
-            PageViewModel<Deposit> pageViewModel = new PageViewModel<Deposit>(await _unitOfWork.Deposits.GetAllAsync(), page, 10);
+            var deposits = await _unitOfWork.Deposits.GetAllAsync();
+
+            if (currencyId.HasValue)
+            {
+                deposits = deposits.Where(d => d.CurrencyId == currencyId.Value).ToList();
+            }
+
+            if (filterByMaxInterestRate)
+            {
+                var maxInterestRate = deposits.Max(d => d.InterestRate);
+                deposits = deposits.Where(d => d.InterestRate == maxInterestRate).ToList();
+            }
+
+            PageViewModel<Deposit> pageViewModel = new PageViewModel<Deposit>(deposits, page, 10);
+
+            ViewData["CurrencyId"] = new SelectList(await _unitOfWork.Currencies.GetAllAsync(), "CurrencyId", "Name", currencyId);
+            ViewData["FilterByMaxInterestRate"] = filterByMaxInterestRate;
+
             return View(pageViewModel);
         }
+
+
+
 
 
         public async Task<IActionResult> Details(int? id)
@@ -119,7 +139,6 @@ namespace Bank_Deposits.Controllers
             return View(deposit);
         }
 
-        // POST: Deposits/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

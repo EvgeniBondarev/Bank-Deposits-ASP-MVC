@@ -3,58 +3,96 @@
 @model PageViewModel<Depositor>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Вкладчики";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Вкладчики</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().PassportDetails)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Items) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PassportDetails)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DepositorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DepositorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DepositorId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-
+<div class="row">
+    <div class="col-md-3">
+        <form method="get" asp-action="Index" class="form-inline flex-column">
+            <div class="form-group">
+                <label for="filterByName">Фильтр по имени:</label>
+                <input type="text" id="filterByName" name="filterByName" value="@(ViewData["FilterByName"] ?? string.Empty)" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <label for="minDepositAmount" class="form-label">Минимальная сумма:</label>
+                        <input type="number" id="minDepositAmount" name="minDepositAmount" value="@(ViewData["MinDepositAmount"] ?? string.Empty)" class="form-control" step="0.01" />
+                    </div>
+                    <div class="col">
+                        <label for="maxDepositAmount" class="form-label">Максимальная сумма:</label>
+                        <input type="number" id="maxDepositAmount" name="maxDepositAmount" value="@(ViewData["MaxDepositAmount"] ?? string.Empty)" class="form-control" step="0.01" />
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary mt-2">Применить</button>
+        </form>
+    </div>
+    <div class="col-md-9">
+        <p>
+            <a asp-action="Create">Создать новый</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().PassportDetails)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().Operations)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PassportDetails)
+                        </td>
+                        <td style="white-space: nowrap;">
+                            <ul>
+                                @foreach (var operation in item.Operations)
+                                {
+                                    <li>@operation.DepositDate.ToShortDateString() - @operation.DepositAmount</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.DepositorId">Редактировать</a> <br />
+                            <a asp-action="Details" asp-route-id="@item.DepositorId">Детали</a> <br />
+                            <a asp-action="Delete" asp-route-id="@item.DepositorId">Удалить</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <div class="pagination-wrapper d-flex justify-content-center">
     <div class="pagination-controls">

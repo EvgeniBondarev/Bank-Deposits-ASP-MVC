@@ -15,11 +15,39 @@ namespace Bank_Deposits.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IActionResult> Index(int page = 1)
+        public async Task<IActionResult> Index(int page = 1, string filterByName = null, decimal? minDepositAmount = null, decimal? maxDepositAmount = null)
         {
-            PageViewModel<Depositor> pageViewModel = new PageViewModel<Depositor>(await _unitOfWork.Depositors.GetAllAsync(), page, 10);
+            var depositors = await _unitOfWork.Depositors.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(filterByName))
+            {
+                depositors = depositors.Where(d => d.FullName.Contains(filterByName, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            if (minDepositAmount.HasValue || maxDepositAmount.HasValue)
+            {
+                foreach (var depositor in depositors)
+                {
+                    depositor.Operations = depositor.Operations
+                        .Where(o => (!minDepositAmount.HasValue || o.DepositAmount >= minDepositAmount.Value) &&
+                                    (!maxDepositAmount.HasValue || o.DepositAmount <= maxDepositAmount.Value))
+                        .ToList();
+                }
+                depositors = depositors
+                    .Where(d => d.Operations.Any())
+                    .ToList();
+            }
+
+            PageViewModel<Depositor> pageViewModel = new PageViewModel<Depositor>(depositors, page, 10);
+
+            ViewData["FilterByName"] = filterByName;
+            ViewData["MinDepositAmount"] = minDepositAmount;
+            ViewData["MaxDepositAmount"] = maxDepositAmount;
+
             return View(pageViewModel);
         }
+
+
 
         public async Task<IActionResult> Details(int? id)
         {

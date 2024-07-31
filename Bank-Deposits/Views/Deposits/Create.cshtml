@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Создание</h1>
 
-<h4>Deposit</h4>
+<h4>Вклад</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -42,15 +42,16 @@
                 <input asp-for="AdditionalConditions" class="form-control" />
                 <span asp-validation-for="AdditionalConditions" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Создать" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">К списку вкладов</a>
 </div>
 @section Scripts {
     @{

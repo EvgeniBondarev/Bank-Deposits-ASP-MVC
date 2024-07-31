@@ -3,69 +3,98 @@
 @model PageViewModel<Deposit>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Вклады";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Вклады</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().MinimumTerm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().MinimumAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().Currency.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().InterestRate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items.First().AdditionalConditions)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Items) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MinimumTerm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MinimumAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Currency.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InterestRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AdditionalConditions)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DepositId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DepositId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DepositId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-3">
+        <br />
+        <form method="get" asp-action="Index" class="form-inline flex-column">
+            <div class="form-group">
+                <label for="currencyId">Фильтр по валюте:</label>
+                <select id="currencyId" name="currencyId" class="form-control">
+                    <option value="">Все</option>
+                    @foreach (var currency in (SelectList)ViewData["CurrencyId"])
+                    {
+                        <option value="@currency.Value">@currency.Text</option>
+                    }
+                </select>
+            </div>
+            <br />
+            <div class="form-group mt-2">
+                <label for="filterByMaxInterestRate">Максимальная процентная ставка:</label>
+                <input type="checkbox" id="filterByMaxInterestRate" name="filterByMaxInterestRate" value="true" class="form-check-input"
+                @(ViewData["FilterByMaxInterestRate"] != null && (bool)ViewData["FilterByMaxInterestRate"] ? "checked" : "") />
+                <input type="hidden" name="filterByMaxInterestRate" value="false" />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary mt-2">Применить</button>
+        </form>
+    </div>
+    <div class="col-md-9">
+        <p>
+            <a asp-action="Create">Создать новый</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().MinimumTerm)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().MinimumAmount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().Currency.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().InterestRate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Items.First().AdditionalConditions)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MinimumTerm)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MinimumAmount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Currency.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InterestRate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AdditionalConditions)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.DepositId">Редактировать</a><br />
+                            <a asp-action="Details" asp-route-id="@item.DepositId">Детали</a><br />
+                            <a asp-action="Delete" asp-route-id="@item.DepositId">Удалить</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <div class="pagination-wrapper d-flex justify-content-center">
     <div class="pagination-controls">

@@ -22,6 +22,7 @@ namespace Domains.Models
         [Required]
         [Display(Name = "Идентификатор валюты")]
         public int CurrencyId { get; set; }
+        [Display(Name = "Валюта")]
         public Currency Currency { get; set; }
 
         [Required]

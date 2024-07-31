@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Вклады</h1>
 
 <div>
-    <h4>Deposit</h4>
+    <h4>Вклад @Html.DisplayFor(model => model.Name)</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -49,7 +49,8 @@
         </dd>
     </dl>
 </div>
+<br />
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.DepositId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.DepositId">Изменить</a> <br />
+    <a asp-action="Index">К списку вкладов</a>
 </div>

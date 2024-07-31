@@ -3,14 +3,14 @@
 @model PageViewModel<Operation>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Операции";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Операции</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Создать новый</a>
 </p>
 <table class="table">
     <thead>
@@ -43,42 +43,45 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Items) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Depositor.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepositDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReturnDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deposit.AdditionalConditions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepositAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReturnAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsReturned)
-            </td>
-            <td>
-                    @foreach(var employ in item.EmployeeOperations)
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Depositor.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepositDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deposit.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepositAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsReturned)
+                </td>
+                <td>
+                    @foreach (var employ in item.EmployeeOperations)
                     {
-                        @Html.DisplayFor(modelItem => employ.Employee.FullName)<br />
+                        @Html.DisplayFor(modelItem => employ.Employee.FullName)
+
+                        <br />
                     }
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OperationId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OperationId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OperationId">Delete</a>
-            </td>
-        </tr>
-}
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OperationId">Редактировать</a>  <br />
+                    <a asp-action="Details" asp-route-id="@item.OperationId">Детали</a> <br />
+                    <a asp-action="Delete" asp-route-id="@item.OperationId">Удалить</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
@@ -124,3 +127,4 @@
             }
         }
     </div>
+</div>
