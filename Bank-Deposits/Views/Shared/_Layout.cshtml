@@ -26,17 +26,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Depositors" asp-action="Index">Вкладчики</a>
                         </li>
                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Currencies" asp-action="Index">Валюта</a>
+                           <a class="nav-link text-dark" asp-area="" asp-controller="Currencies" asp-action="Index">Валюта</a>
                         </li>
                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ExchangeRates" asp-action="Index">Курсы валют</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Operations" asp-action="Index">Операции</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Отдел кадров</a>
-                        </li>
+                           <a class="nav-link text-dark" asp-area="" asp-controller="ExchangeRates" asp-action="Index">Курсы валют</a>
+                         </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Operations" asp-action="Index">Операции</a>
+                            </li>
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Отдел кадров</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
